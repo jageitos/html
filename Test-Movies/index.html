@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <style>
+      html, body {
+        margin: 0px;
+        padding: 0px;
+      }
+      .wrapper {
+        padding-top: 20px;
+        display: grid;
+        width: 1080px;
+        grid-template-columns: repeat(5, 200px);
+        grid-gap: 20px;
+        margin: auto;
+      }
+      .movie {
+        height: 250px;
+        display: grid;
+        background-color: grey;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+      }
+      .movie img  {
+        width: 100%;
+        height: 100%;
+        grid-column: 1/2;
+        grid-row: 1/2;
+      }
+      .movie span {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        align-self: end;
+        background-color: grey;
+        color: white;
+        opacity: 0.8;
+        font-size: large;
+        padding: 5px;
+        /*height: 20px;*/
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="movie">
+          <img src="image.jpg" alt="">
+          <span>How to be a latin lover</span>
+      </div>
+      <div class="movie">
+          <img src="image.jpg" alt="">
+          <span>How to be a latin lovdasdfasjhfhgsdjlkhfgljkrh er</span>
+      </div>
+      <div class="movie">
+          <img src="image.jpg" alt="">
+          <span>How to be a latin lover</span>
+      </div>
+      <div class="movie">
+          <img src="image.jpg" alt="">
+          <span>How to be a latin lover</span>
+      </div>
+      <div class="movie">
+          <img src="image.jpg" alt="">
+          <span>How to be a latin lover</span>
+      </div>
+      <div class="movie">
+          <img src="image.jpg" alt="">
+          <span>How to be a latin lover</span>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+
+        <style>
+            .fileUpload {
+                position: relative;
+                overflow: hidden;
+                margin: 10px;
+                background-color: #BDBDBD;
+                height: 200px;
+                width: 200px;
+                text-align: center;
+            }
+            .fileUpload input.upload {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: 0;
+                padding: 0;
+                font-size: 20px;
+                cursor: pointer;
+                opacity: 0;
+                filter: alpha(opacity=0);
+                height: 100%;
+                text-align: center;
+            }
+            .custom-span{
+                font-family: Arial;
+                font-weight: bold;
+                font-size: 100px;
+                color: #FE57A1}
+            .custom-para{
+                font-family: arial;
+                font-weight: bold;
+                font-size: 24px;
+                color:#585858;}
+        </style>
+    </head>
+    <body>
+        <div class="fileUpload">
+            <span class="custom-span">+</span>
+            <p class="custom-para">Add Images</p>
+            <input id="uploadBtn" type="file" class="upload" />
+        </div>
+    </body>
+</html>

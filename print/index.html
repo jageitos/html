@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <button type="button" name="button" onclick="print();">Click</button>
+    <script type="text/javascript">
+      function print() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "http://localhost:8000/numero", true);
+        xhttp.send("{codigo:10}");
+      }
+    </script>
+  </body>
+</html>
