@@ -2,7 +2,7 @@
     background-color: #35afea
     *
         box-sizing: border-box
-    a
+    li > a, a.content
         text-decoration: none
         text-transform: capitalize
         color: white
@@ -10,6 +10,13 @@
         letter-spacing: 0.3pt
         &:hover
             background-color: #74cdf7
+    span.badge
+        position: absolute
+        top: 5px
+        right: 0px
+        background: #f44
+        font-size: 1rem
+        padding: 5px 7px
     .open > a
         background-color: #74cdf7
     .dropdown-menu
@@ -38,17 +45,21 @@
                     &.sinleer
                         background: #E5E8E8
             .notification-heading, .notification-footer
-                padding: 2px 10px
+                padding: 2px
                 display: flex
-                justify-content: flex-end
+                justify-content: flex-start
                 a
-                    text-decoration: none
-                    background-color: #35afea
-                    display: flex
-                    align-items: center
+                    color: #35afea
+                    h4
+                        font-size: 1.3rem
+                        margin: 5px
+                    &:hover
+                        text-decoration: underline
                 .menu-title
                     color: #fff
                     font-size: 1.5rem
                     padding: 0px 5px
-            .notification-heading
-                justify-content: flex-start
+            .notification-footer
+                justify-content: center
+                background: #fff
+                border-top: 1px solid #E5E8E8
