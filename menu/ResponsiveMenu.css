@@ -16,7 +16,7 @@
 }
 #ResponsiveMenu span.badge {
   position: absolute;
-  top: 5px;
+  top: 3px;
   right: 0px;
   background: #f44;
   font-size: 1rem;
@@ -38,7 +38,7 @@
   max-height: 250px;
 }
 #ResponsiveMenu .dropdown-menu.notifications .notifications-wrapper .notification-item {
-  padding: 1px 10px;
+  padding: 2px;
   margin: 0px;
   background: #fff;
   border-bottom: 2px solid #E5E8E8;
@@ -47,6 +47,7 @@
   font-size: 1.1rem;
   color: #000;
   margin: 3px 0px;
+  font-weight: bold;
 }
 #ResponsiveMenu .dropdown-menu.notifications .notifications-wrapper .notification-item .item-info {
   font-size: 1.2rem;
@@ -56,6 +57,38 @@
 }
 #ResponsiveMenu .dropdown-menu.notifications .notifications-wrapper .notification-item.sinleer {
   background: #E5E8E8;
+}
+#ResponsiveMenu .dropdown-menu.notifications .notifications-wrapper.withimage .notification-item {
+  display: flex;
+  position: relative;
+}
+#ResponsiveMenu .dropdown-menu.notifications .notifications-wrapper.withimage .notification-item .item-image {
+  display: flex;
+  min-width: 70px;
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+#ResponsiveMenu .dropdown-menu.notifications .notifications-wrapper.withimage .notification-item .item-image img {
+  max-height: 100%;
+  height: 100%;
+  width: auto;
+}
+#ResponsiveMenu .dropdown-menu.notifications .notifications-wrapper.withimage .notification-item .item-info {
+  font-size: 1.3rem;
+  color: #000;
+  margin: 0px;
+  font-weight: bold;
+  padding: 3px;
+}
+#ResponsiveMenu .dropdown-menu.notifications .notifications-wrapper.withimage .notification-item .item-date {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  padding: 3px;
+  color: #000;
 }
 #ResponsiveMenu .dropdown-menu.notifications .notification-heading, #ResponsiveMenu .dropdown-menu.notifications .notification-footer {
   padding: 2px;
