@@ -1,26 +1,35 @@
 #ResponsiveMenu
-    background-color: #35afea
+    --main-background-color: #35afea
+    --highlight-background-color: #74cdf7
+    --menu-color: white
+    --badge-background-color: #f44
+    --border-color: #aeb7b7
+    --notification-background-color: #fff
+    --unread-notification-background-color: #E5E8E8
+    --main-color: #000
+
+    background-color: var(--main-background-color)
     *
         box-sizing: border-box
     li > a, a.content
         text-decoration: none
         text-transform: capitalize
-        color: white
+        color: var(--menu-color)
         font-weight: bold
         letter-spacing: 0.3pt
         &:hover
-            background-color: #74cdf7
+            background-color: var(--highlight-background-color)
     span.badge
         position: absolute
         top: 3px
         right: 0px
-        background: #f44
+        background: var(--badge-background-color)
         font-size: 1rem
         padding: 5px 7px
     .open > a
-        background-color: #74cdf7
+        background-color: var(--highlight-background-color)
     .dropdown-menu
-        background-color: #35afea
+        background-color: var(--main-background-color)
         padding: 0
         &.notifications
             min-width: 420px
@@ -31,31 +40,31 @@
                 .notification-item
                     padding: 2px
                     margin: 0px
-                    background: #fff
-                    border-bottom: 2px solid #E5E8E8
+                    background-color: var(--notification-background-color)
+                    border-bottom: 1px solid var(--border-color)
                     .item-title
                         font-size: 1.1rem
-                        color: #000
+                        color: var(--main-color)
                         margin: 3px 0px
                         font-weight: bold
                     .item-info
                         font-size: 1.2rem
-                        color: #000
+                        color: var(--main-color)
                         margin: 5px
                         font-weight: normal
                     &.sinleer
-                        background: #E5E8E8
+                        background-color: var(--unread-notification-background-color)
                 &.withimage
                     .notification-item
                         display: flex
                         position: relative
                         // align-items: flex-start
-                        max-height: 70px
+                        max-height: 75px
                         .item-image
                             display: flex
-                            min-width: 64px
-                            width: 64px
-                            height: 64px
+                            min-width: 70px
+                            width: 70px
+                            height: 70px
                             overflow: hidden
                             justify-content: center
                             align-items: center
@@ -65,34 +74,32 @@
                                 width: auto
                         .item-title
                             font-size: 1.3rem
-                            color: #000
+                            color: var(--main-color)
                             margin: 0px
-                            font-weight: bold
-                            padding: 3px
+                            padding: 2px 4px
                         .item-date
                             position: absolute
                             bottom: 0px
                             right:  0px
                             padding: 3px
-                            color: #000
+                            color: var(--main-color)
                             font-size: 1rem
-
             .notification-heading, .notification-footer
                 padding: 2px
                 display: flex
                 justify-content: flex-start
                 a
-                    color: #35afea
+                    color: var(--main-background-color)
                     h4
                         font-size: 1.3rem
                         margin: 5px
                     &:hover
                         text-decoration: underline
                 .menu-title
-                    color: #fff
+                    color: var(--menu-color)
                     font-size: 1.5rem
                     padding: 0px 5px
             .notification-footer
                 justify-content: center
-                background: #fff
-                border-top: 1px solid #E5E8E8
+                background-color: var(--menu-color)
+                border-top: 1px solid var(--border-color)
