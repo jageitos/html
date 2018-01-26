@@ -6,9 +6,11 @@ function ResponsiveMenu($)
 	this.RecordatoriosData;
 	this.RecordatoriosUnread;
 	this.RecordatoriosHab;
+	this.RecordatoriosVerTodos;
 	this.ConsejosData;
 	this.ConsejosUnread;
 	this.ConsejosHab;
+	this.ConsejosVerTodos;
 	this.Width;
 	this.Height;
 
@@ -174,7 +176,7 @@ function ResponsiveMenu($)
 	this.loadConsejos = function() {
 		let tmp = new gx.text.stringBuffer();
 		tmp.clear();
-		if (this.ConsejosHab == 1) {
+		if (this.ConsejosHab) {
 			tmp.append('<li class="dropdown">');
 			tmp.append('<a role="button" data-toggle="dropdown" data-target="#">');
 			tmp.append('<i class="glyphicon glyphicon-heart"></i>');
@@ -204,7 +206,7 @@ function ResponsiveMenu($)
 				}
 
 				tmp.append('</div>');
-				tmp.append('<div class="notification-footer"><a href="#"><h4>Ver todos</h4></a></div>)');
+				tmp.append('<div class="notification-footer"><a href="' + this.ConsejosVerTodos + '"><h4>Ver todos</h4></a></div>)');
 			} else {
 				tmp.append('No cuenta con consejos en este momento</h4></div>');
 			}
@@ -218,7 +220,7 @@ function ResponsiveMenu($)
 	this.loadRecordatorios = function() {
 		let tmp = new gx.text.stringBuffer();
 		tmp.clear();
-		if (this.RecordatoriosHab == 1) {
+		if (this.RecordatoriosHab) {
 			tmp.append('<li class="dropdown">');
 			tmp.append('<a role="button" data-toggle="dropdown" data-target="#">');
 			tmp.append('<i class="glyphicon glyphicon-bell"></i>');
@@ -229,28 +231,25 @@ function ResponsiveMenu($)
 			tmp.append('<ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">');
 			tmp.append('<div class="notification-heading"><h4 class="menu-title">');
 			if (this.RecordatoriosData != undefined && this.RecordatoriosData.toString() != "") {
-				tmp.append('Consejos</h4></div>');
+				tmp.append('Recordatorios</h4></div>');
 
-				tmp.append('<div class="notifications-wrapper withimage">');
+				tmp.append('<div class="notifications-wrapper">');
 				for (let recordatorio of this.RecordatoriosData) {
 					tmp.append('<a class="content" href="' + recordatorio.link + '">');
 					tmp.append('<div class="notification-item');
 					if (recordatorio.noleido) {
 						 tmp.append(' sinleer');
 					}
-					tmp.append('"><div class="item-image">');
-					tmp.append('<img src="' + recordatorio.imagen + '" alt="">');
-					tmp.append('</div>');
-					tmp.append('<h4 class="item-title">' + recordatorio.titulo + '</h4>');
-					tmp.append('<span class="item-date">' + recordatorio.fecha + '</span>');
+					tmp.append('"><h4 class="item-title">' + recordatorio.fecha + '</h4>');
+					tmp.append('<p class="item-info">' + recordatorio.titulo + '</p>');
 					tmp.append('</div>');
 					tmp.append('</a>');
 				}
 
 				tmp.append('</div>');
-				tmp.append('<div class="notification-footer"><a href="' + this.recordatoriosVerTodos + '"><h4>Ver todos</h4></a></div>)');
+				tmp.append('<div class="notification-footer"><a href="' + this.RecordatoriosVerTodos + '"><h4>Ver todos</h4></a></div>)');
 			} else {
-				tmp.append('No cuenta con consejos en este momento</h4></div>');
+				tmp.append('No cuenta con recordatorios en este momento</h4></div>');
 			}
 			tmp.append('</ul>');
 			tmp.append('</li>');
