@@ -172,18 +172,89 @@ function ResponsiveMenu($)
 	}
 
 	this.loadConsejos = function() {
-		let tmp = "";
+		let tmp = new gx.text.stringBuffer();
+		tmp.clear();
 		if (this.ConsejosHab == 1) {
-			if (this.ConsejosData != undefined && this.ConsejosData.toString() != "") {
-
+			tmp.append('<li class="dropdown">');
+			tmp.append('<a role="button" data-toggle="dropdown" data-target="#">');
+			tmp.append('<i class="glyphicon glyphicon-heart"></i>');
+			if (this.ConsejosUnread != undefined && this.ConsejosUnread > 0) {
+				tmp.append('<span class="badge">' + this.ConsejosUnread + '</span>')
 			}
+			tmp.append('</a>');
+			tmp.append('<ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">');
+			tmp.append('<div class="notification-heading"><h4 class="menu-title">');
+			if (this.ConsejosData != undefined && this.ConsejosData.toString() != "") {
+				tmp.append('Consejos</h4></div>');
+
+				tmp.append('<div class="notifications-wrapper withimage">');
+				for (let consejo of this.ConsejosData) {
+					tmp.append('<a class="content" href="' + consejo.link + '">');
+					tmp.append('<div class="notification-item');
+					if (consejo.noleido) {
+						 tmp.append(' sinleer');
+					}
+					tmp.append('"><div class="item-image">');
+					tmp.append('<img src="' + consejo.imagen + '" alt="">');
+					tmp.append('</div>');
+					tmp.append('<h4 class="item-title">' + consejo.titulo + '</h4>');
+					tmp.append('<span class="item-date">' + consejo.fecha + '</span>');
+					tmp.append('</div>');
+					tmp.append('</a>');
+				}
+
+				tmp.append('</div>');
+				tmp.append('<div class="notification-footer"><a href="#"><h4>Ver todos</h4></a></div>)');
+			} else {
+				tmp.append('No cuenta con consejos en este momento</h4></div>');
+			}
+			tmp.append('</ul>');
+			tmp.append('</li>');
 		}
 
 		return tmp;
 	}
 
 	this.loadRecordatorios = function() {
-		let tmp = "";
+		let tmp = new gx.text.stringBuffer();
+		tmp.clear();
+		if (this.RecordatoriosHab == 1) {
+			tmp.append('<li class="dropdown">');
+			tmp.append('<a role="button" data-toggle="dropdown" data-target="#">');
+			tmp.append('<i class="glyphicon glyphicon-bell"></i>');
+			if (this.RecordatoriosUnread != undefined && this.RecordatoriosUnread > 0) {
+				tmp.append('<span class="badge">' + this.RecordatoriosUnread + '</span>')
+			}
+			tmp.append('</a>');
+			tmp.append('<ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">');
+			tmp.append('<div class="notification-heading"><h4 class="menu-title">');
+			if (this.RecordatoriosData != undefined && this.RecordatoriosData.toString() != "") {
+				tmp.append('Consejos</h4></div>');
+
+				tmp.append('<div class="notifications-wrapper withimage">');
+				for (let recordatorio of this.RecordatoriosData) {
+					tmp.append('<a class="content" href="' + recordatorio.link + '">');
+					tmp.append('<div class="notification-item');
+					if (recordatorio.noleido) {
+						 tmp.append(' sinleer');
+					}
+					tmp.append('"><div class="item-image">');
+					tmp.append('<img src="' + recordatorio.imagen + '" alt="">');
+					tmp.append('</div>');
+					tmp.append('<h4 class="item-title">' + recordatorio.titulo + '</h4>');
+					tmp.append('<span class="item-date">' + recordatorio.fecha + '</span>');
+					tmp.append('</div>');
+					tmp.append('</a>');
+				}
+
+				tmp.append('</div>');
+				tmp.append('<div class="notification-footer"><a href="' + this.recordatoriosVerTodos + '"><h4>Ver todos</h4></a></div>)');
+			} else {
+				tmp.append('No cuenta con consejos en este momento</h4></div>');
+			}
+			tmp.append('</ul>');
+			tmp.append('</li>');
+		}
 
 		return tmp;
 	}
