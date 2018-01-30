@@ -4,15 +4,18 @@ function ResponsiveMenu($)
 	this.ResponsiveMenuDataRight;
 	this.SelectedItem;
 	this.RecordatoriosData;
-	this.RecordatoriosUnread;
+	this.RecordatoriosSinLeer;
 	this.RecordatoriosHab;
 	this.RecordatoriosVerTodos;
 	this.ConsejosData;
-	this.ConsejosUnread;
+	this.ConsejosSinLeer;
 	this.ConsejosHab;
 	this.ConsejosVerTodos;
 	this.Width;
 	this.Height;
+	this.BackgroundColor;
+	this.HighlightBackgroundColor;
+	this.MenuColor;
 
 	// Databinding for property ResponsiveMenuDataLeft
 	this.SetResponsiveMenuDataLeft = function(data)
@@ -128,6 +131,7 @@ function ResponsiveMenu($)
 			buffer.append('</div>');
 			buffer.append('</nav>');
 			this.setHtml(buffer.toString());
+			this.setColors();
 		}
 		///UserCodeRegionEnd: (do not remove this comment.)
 	}
@@ -180,8 +184,8 @@ function ResponsiveMenu($)
 			tmp.append('<li class="dropdown">');
 			tmp.append('<a role="button" data-toggle="dropdown" data-target="#">');
 			tmp.append('<i class="glyphicon glyphicon-heart"></i>');
-			if (this.ConsejosUnread != undefined && this.ConsejosUnread > 0) {
-				tmp.append('<span class="badge">' + this.ConsejosUnread + '</span>')
+			if (this.ConsejosSinLeer != undefined && this.ConsejosSinLeer > 0) {
+				tmp.append('<span class="badge">' + this.ConsejosSinLeer + '</span>')
 			}
 			tmp.append('</a>');
 			tmp.append('<ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">');
@@ -193,7 +197,7 @@ function ResponsiveMenu($)
 				for (let consejo of this.ConsejosData) {
 					tmp.append('<a class="content" href="' + consejo.link + '">');
 					tmp.append('<div class="notification-item');
-					if (consejo.noleido) {
+					if !(consejo.leido) {
 						 tmp.append(' sinleer');
 					}
 					tmp.append('"><div class="item-image">');
@@ -224,8 +228,8 @@ function ResponsiveMenu($)
 			tmp.append('<li class="dropdown">');
 			tmp.append('<a role="button" data-toggle="dropdown" data-target="#">');
 			tmp.append('<i class="glyphicon glyphicon-bell"></i>');
-			if (this.RecordatoriosUnread != undefined && this.RecordatoriosUnread > 0) {
-				tmp.append('<span class="badge">' + this.RecordatoriosUnread + '</span>')
+			if (this.RecordatoriosSinLeer != undefined && this.RecordatoriosSinLeer > 0) {
+				tmp.append('<span class="badge">' + this.RecordatoriosSinLeer + '</span>')
 			}
 			tmp.append('</a>');
 			tmp.append('<ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">');
@@ -237,7 +241,7 @@ function ResponsiveMenu($)
 				for (let recordatorio of this.RecordatoriosData) {
 					tmp.append('<a class="content" href="' + recordatorio.link + '">');
 					tmp.append('<div class="notification-item');
-					if (recordatorio.noleido) {
+					if !(recordatorio.leido) {
 						 tmp.append(' sinleer');
 					}
 					tmp.append('"><h4 class="item-title">' + recordatorio.fecha + '</h4>');
@@ -256,6 +260,13 @@ function ResponsiveMenu($)
 		}
 
 		return tmp;
+	}
+
+	this.setColors = function() {
+		const rm = document.querySelector('#ResponsiveMenu');
+	    rm.style.setProperty('--main-background-color', this.BackgroundColor);
+		rm.style.setProperty('--highlight-background-color', this.HighlightBackgroundColor);
+		rm.style.setProperty('--menu-color', this.MenuColor);
 	}
 
 	this.ItemOnClick = function(id, title, description, link) {
